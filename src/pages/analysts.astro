@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const title = "Analysts · The Epsilon Omicron Fund";
+const description = "The investment committee of the Epsilon Omicron Fund. Five co-founders, five sectors, one fund.";
+
 // Bio data — keeps the JSX below clean and makes adding/editing bios trivial.
 // Display order: Jason first (President), then directors alphabetical by first name.
 const analysts = [
@@ -37,7 +40,7 @@ const analysts = [
 ];
 ---
 
-<Layout>
+<Layout title={title} description={description}>
 	<!-- Outer container — same width as homepage for masthead consistency -->
 	<div class="mx-auto max-w-[1080px] px-6">
 

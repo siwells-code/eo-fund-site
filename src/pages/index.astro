@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const title = "The Epsilon Omicron Fund";
+const description = "A student-run, long-only equity fund at Sigma Nu's Epsilon Omicron chapter. We seek long-term returns above the S&P 500 by owning durable, well-positioned businesses with competitive moats.";
 ---
 
-<Layout>
+<Layout title={title} description={description}>
 	<!-- Outer container — holds everything in a centered column on desktop -->
 	<div class="mx-auto max-w-[1080px] px-6">
 
@@ -39,8 +42,12 @@ import Layout from '../layouts/Layout.astro';
 			<section>
 				<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-6">Mission</p>
 
-				<p class="font-serif text-[19px] leading-[1.65] text-ink mb-8">
-					The Epsilon Omicron Fund seeks long-term returns above the S&amp;P 500 by owning durable, well-positioned businesses, and trains the brothers of Sigma Nu's Epsilon Omicron chapter to become better decision-makers, risk managers, and financial professionals.
+				<p class="font-serif text-[19px] leading-[1.65] text-ink mb-6">
+					The Epsilon Omicron Fund seeks long-term investment returns above the S&amp;P 500 by owning a concentrated portfolio of strategically well-positioned, durable businesses with competitive moats. In doing so, the fund trains the brothers of Sigma Nu's Epsilon Omicron chapter to become better decision-makers, risk managers, and financial professionals.
+				</p>
+
+				<p class="font-serif text-[16px] leading-[1.7] text-ink-soft mb-8">
+					Every position is grounded in business quality, free cash flow, and a defensible margin of safety between price and intrinsic value.
 				</p>
 
 				<a href="/philosophy" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink border-b border-gold pb-1 hover:text-gold transition-colors">
@@ -68,6 +75,31 @@ import Layout from '../layouts/Layout.astro';
 			</aside>
 		</main>
 	</div>
+
+	<!-- BY THE NUMBERS: structural facts about the fund, no performance figures -->
+	<section class="border-t border-rule">
+		<div class="mx-auto max-w-[1080px] px-6 py-12">
+			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-8 text-center">By the Numbers</p>
+			<div class="grid grid-cols-4 gap-8">
+				<div class="text-center">
+					<p class="font-serif text-[36px] font-medium text-ink leading-none mb-2">11</p>
+					<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-ink-muted">Active Positions</p>
+				</div>
+				<div class="text-center">
+					<p class="font-serif text-[36px] font-medium text-ink leading-none mb-2">7</p>
+					<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-ink-muted">S&amp;P 500 Sectors</p>
+				</div>
+				<div class="text-center">
+					<p class="font-serif text-[36px] font-medium text-ink leading-none mb-2">18 mo.</p>
+					<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-ink-muted">Median Holding Period</p>
+				</div>
+				<div class="text-center">
+					<p class="font-serif text-[36px] font-medium text-ink leading-none mb-2">2026</p>
+					<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-ink-muted">Founded</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!-- ARCHIVE BAND: full-width, slightly darker cream background -->
 	<section class="bg-cream-band py-10">

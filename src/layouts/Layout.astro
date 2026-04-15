@@ -1,21 +1,48 @@
 ---
 import '../styles/global.css';
+
+// Props passed in from each page. Each page sets its own title and description.
+// Defaults are used if a page doesn't specify them.
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "The Epsilon Omicron Fund",
+	description = "A student-run, long-only equity fund at Sigma Nu's Epsilon Omicron chapter. We seek long-term returns above the S&P 500 by owning durable, well-positioned businesses.",
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Page title and description -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<!-- Open Graph (Facebook, iMessage, LinkedIn, Slack link previews) -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content="The Epsilon Omicron Fund" />
+
+		<!-- Twitter card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+
+		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
-		<title>The Epsilon Omicron Fund</title>
 	</head>
 	<body class="bg-cream text-ink font-serif antialiased">
 		<slot />
