@@ -9,22 +9,43 @@ const description = "A student-run, long-only equity fund at Sigma Nu's Epsilon 
 	<!-- Outer container — holds everything in a centered column on desktop -->
 	<div class="mx-auto max-w-[1080px] px-6">
 
-		<!-- MASTHEAD: wordmark on left, nav on right -->
+		<!-- MASTHEAD: wordmark on left, nav on right (desktop) or hamburger (mobile) -->
 		<header class="pt-10 pb-5">
 			<div class="flex items-start justify-between gap-8">
 				<!-- Wordmark — 26px serif, medium weight, tight line height -->
 				<h1 class="font-serif text-[26px] leading-[1.15] font-medium text-ink max-w-[240px]">
 					The Epsilon<br />Omicron<br />Fund
 				</h1>
-				<!-- Nav — sans-serif, uppercase, wide letter-spacing -->
-				<nav class="flex items-center gap-10 pt-2">
+
+				<!-- DESKTOP NAV — hidden on mobile (md: and up only) -->
+				<nav class="hidden md:flex items-center gap-10 pt-2">
 					<a href="/" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink border-b border-gold pb-1">Home</a>
 					<a href="/philosophy" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Philosophy</a>
 					<a href="/letters" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Letters</a>
 					<a href="/analysts" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Analysts</a>
 					<a href="/contact" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Contact</a>
 				</nav>
+
+				<!-- MOBILE HAMBURGER BUTTON — visible only below md: breakpoint -->
+				<button
+					id="mobile-nav-toggle"
+					aria-label="Open menu"
+					class="md:hidden flex flex-col justify-center items-center w-10 h-10 mt-2"
+				>
+					<span class="block w-6 h-px bg-ink mb-1.5"></span>
+					<span class="block w-6 h-px bg-ink mb-1.5"></span>
+					<span class="block w-6 h-px bg-ink"></span>
+				</button>
 			</div>
+
+			<!-- MOBILE NAV PANEL — hidden by default, toggled by JS -->
+			<nav id="mobile-nav-panel" class="hidden md:hidden flex-col gap-5 pt-6 pb-2">
+				<a href="/" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink border-b border-gold pb-1 self-start">Home</a>
+				<a href="/philosophy" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Philosophy</a>
+				<a href="/letters" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Letters</a>
+				<a href="/analysts" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Analysts</a>
+				<a href="/contact" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Contact</a>
+			</nav>
 		</header>
 
 		<!-- KICKER: gold small-caps tag, then black horizontal rule -->
@@ -35,18 +56,18 @@ const description = "A student-run, long-only equity fund at Sigma Nu's Epsilon 
 		</div>
 		<hr class="border-0 border-t border-ink" />
 
-		<!-- MAIN CONTENT: two-column grid, mission on left, latest letter on right -->
-		<main class="grid grid-cols-[1.6fr_1fr] gap-14 py-12">
+		<!-- MAIN CONTENT: single column on mobile, two-column grid on desktop -->
+		<main class="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-10 md:gap-14 py-10 md:py-12">
 
 			<!-- LEFT COLUMN: Mission -->
 			<section>
 				<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-6">Mission</p>
 
-				<p class="font-serif text-[19px] leading-[1.65] text-ink mb-6">
+				<p class="font-serif text-[18px] md:text-[19px] leading-[1.65] text-ink mb-6">
 					The Epsilon Omicron Fund seeks long-term investment returns above the S&amp;P 500 by owning a concentrated portfolio of strategically well-positioned, durable businesses with competitive moats. In doing so, the fund trains the brothers of Sigma Nu's Epsilon Omicron chapter to become better decision-makers, risk managers, and financial professionals.
 				</p>
 
-				<p class="font-serif text-[16px] leading-[1.7] text-ink-soft mb-8">
+				<p class="font-serif text-[15px] md:text-[16px] leading-[1.7] text-ink-soft mb-8">
 					Every position is grounded in business quality, free cash flow, and a defensible margin of safety between price and intrinsic value.
 				</p>
 
@@ -55,8 +76,8 @@ const description = "A student-run, long-only equity fund at Sigma Nu's Epsilon 
 				</a>
 			</section>
 
-			<!-- RIGHT COLUMN: Latest Letter (separated by vertical rule) -->
-			<aside class="border-l border-rule pl-14">
+			<!-- RIGHT COLUMN: Latest Letter — vertical rule only on desktop, top border on mobile -->
+			<aside class="border-t md:border-t-0 md:border-l border-rule pt-10 md:pt-0 md:pl-14">
 				<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-6">Latest Letter</p>
 
 				<p class="font-sans text-[11px] text-ink-muted mb-3">March 2026 &middot; Inception Memo</p>
@@ -76,37 +97,37 @@ const description = "A student-run, long-only equity fund at Sigma Nu's Epsilon 
 		</main>
 	</div>
 
-	<!-- BY THE NUMBERS: structural facts about the fund, no performance figures -->
+	<!-- BY THE NUMBERS: 2 columns on mobile, 4 on desktop -->
 	<section class="border-t border-rule">
-		<div class="mx-auto max-w-[1080px] px-6 py-12">
+		<div class="mx-auto max-w-[1080px] px-6 py-10 md:py-12">
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-8 text-center">By the Numbers</p>
-			<div class="grid grid-cols-4 gap-8">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-8">
 				<div class="text-center">
-					<p class="font-serif text-[36px] font-medium text-ink leading-none mb-2">11</p>
+					<p class="font-serif text-[32px] md:text-[36px] font-medium text-ink leading-none mb-2">11</p>
 					<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-ink-muted">Active Positions</p>
 				</div>
 				<div class="text-center">
-					<p class="font-serif text-[36px] font-medium text-ink leading-none mb-2">7</p>
+					<p class="font-serif text-[32px] md:text-[36px] font-medium text-ink leading-none mb-2">7</p>
 					<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-ink-muted">S&amp;P 500 Sectors</p>
 				</div>
 				<div class="text-center">
-					<p class="font-serif text-[36px] font-medium text-ink leading-none mb-2">18 mo.</p>
+					<p class="font-serif text-[32px] md:text-[36px] font-medium text-ink leading-none mb-2">18 mo.</p>
 					<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-ink-muted">Median Holding Period</p>
 				</div>
 				<div class="text-center">
-					<p class="font-serif text-[36px] font-medium text-ink leading-none mb-2">2026</p>
+					<p class="font-serif text-[32px] md:text-[36px] font-medium text-ink leading-none mb-2">2026</p>
 					<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-ink-muted">Founded</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- ARCHIVE BAND: full-width, slightly darker cream background -->
+	<!-- ARCHIVE BAND: stacked on mobile, 3 columns on desktop -->
 	<section class="bg-cream-band py-10">
 		<div class="mx-auto max-w-[1080px] px-6">
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-6">From the Archive</p>
 
-			<div class="grid grid-cols-3 gap-10">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
 				<article>
 					<p class="font-sans text-[11px] text-ink-muted mb-2">Jan 2026</p>
 					<h3 class="font-serif text-[16px] leading-[1.4] font-medium text-ink">
@@ -131,11 +152,21 @@ const description = "A student-run, long-only equity fund at Sigma Nu's Epsilon 
 		</div>
 	</section>
 
-	<!-- FOOTER: dark band, anchors the page -->
+	<!-- FOOTER: stacked on mobile, side-by-side on desktop -->
 	<footer class="bg-ink text-cream py-6">
-		<div class="mx-auto max-w-[1080px] px-6 flex items-center justify-between">
+		<div class="mx-auto max-w-[1080px] px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0">
 			<p class="font-serif italic text-[14px]">Fraternally, since 2026</p>
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold">&Sigma; N &middot; Epsilon Omicron</p>
 		</div>
 	</footer>
+
+	<!-- MOBILE NAV TOGGLE SCRIPT — five lines of vanilla JS -->
+	<script>
+		const toggle = document.getElementById('mobile-nav-toggle');
+		const panel = document.getElementById('mobile-nav-panel');
+		toggle?.addEventListener('click', () => {
+			panel?.classList.toggle('hidden');
+			panel?.classList.toggle('flex');
+		});
+	</script>
 </Layout>
