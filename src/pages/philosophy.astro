@@ -6,26 +6,47 @@ const description = "Investors, not speculators. The six-step framework we use t
 ---
 
 <Layout title={title} description={description}>
-	<!-- Outer container — same width as homepage for masthead consistency -->
 	<div class="mx-auto max-w-[1080px] px-6">
 
-		<!-- MASTHEAD: identical to homepage, but with PHILOSOPHY underlined instead of HOME -->
+		<!-- MASTHEAD -->
 		<header class="pt-10 pb-5">
 			<div class="flex items-start justify-between gap-8">
 				<h1 class="font-serif text-[26px] leading-[1.15] font-medium text-ink max-w-[240px]">
 					The Epsilon<br />Omicron<br />Fund
 				</h1>
-				<nav class="flex items-center gap-10 pt-2">
+
+				<!-- DESKTOP NAV -->
+				<nav class="hidden md:flex items-center gap-10 pt-2">
 					<a href="/" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Home</a>
 					<a href="/philosophy" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink border-b border-gold pb-1">Philosophy</a>
 					<a href="/letters" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Letters</a>
 					<a href="/analysts" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Analysts</a>
 					<a href="/contact" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Contact</a>
 				</nav>
+
+				<!-- MOBILE HAMBURGER -->
+				<button
+					id="mobile-nav-toggle"
+					aria-label="Open menu"
+					class="md:hidden flex flex-col justify-center items-center w-10 h-10 mt-2"
+				>
+					<span class="block w-6 h-px bg-ink mb-1.5"></span>
+					<span class="block w-6 h-px bg-ink mb-1.5"></span>
+					<span class="block w-6 h-px bg-ink"></span>
+				</button>
 			</div>
+
+			<!-- MOBILE NAV PANEL -->
+			<nav id="mobile-nav-panel" class="hidden md:hidden flex-col gap-5 pt-6 pb-2">
+				<a href="/" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Home</a>
+				<a href="/philosophy" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink border-b border-gold pb-1 self-start">Philosophy</a>
+				<a href="/letters" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Letters</a>
+				<a href="/analysts" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Analysts</a>
+				<a href="/contact" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Contact</a>
+			</nav>
 		</header>
 
-		<!-- KICKER: same as homepage -->
+		<!-- KICKER -->
 		<div class="pb-3">
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold leading-[1.6]">
 				Sigma Nu &middot;<br />Established 2026
@@ -35,23 +56,23 @@ const description = "Investors, not speculators. The six-step framework we use t
 
 	</div>
 
-	<!-- PHILOSOPHY ARTICLE: narrower centered column for long-form reading -->
-	<article class="mx-auto max-w-[640px] px-6 py-16">
+	<!-- PHILOSOPHY ARTICLE -->
+	<article class="mx-auto max-w-[640px] px-6 py-12 md:py-16">
 
-		<!-- TITLE BLOCK: centered, with kicker label, big serif title, and dek -->
-		<div class="text-center mb-14">
+		<!-- TITLE BLOCK -->
+		<div class="text-center mb-10 md:mb-14">
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-6">Investment Philosophy</p>
-			<h2 class="font-serif text-[34px] leading-[1.2] font-medium text-ink mb-4">
+			<h2 class="font-serif text-[28px] md:text-[34px] leading-[1.2] font-medium text-ink mb-4">
 				Investors, not speculators.
 			</h2>
 			<p class="font-serif italic text-[15px] text-ink-muted">On what we own, and why.</p>
 			<hr class="border-0 border-t border-rule w-12 mx-auto mt-6" />
 		</div>
 
-		<!-- BODY: long-form prose with drop cap on first paragraph -->
-		<div class="font-serif text-[16px] leading-[1.75] text-ink-soft space-y-6">
+		<!-- BODY -->
+		<div class="font-serif text-[15px] md:text-[16px] leading-[1.75] text-ink-soft space-y-6">
 
-			<p class="first-letter:font-serif first-letter:text-[64px] first-letter:leading-[0.85] first-letter:text-gold first-letter:float-left first-letter:pr-3 first-letter:pt-2 first-letter:font-medium">
+			<p class="first-letter:font-serif first-letter:text-[48px] md:first-letter:text-[64px] first-letter:leading-[0.85] first-letter:text-gold first-letter:float-left first-letter:pr-3 first-letter:pt-2 first-letter:font-medium">
 				The Epsilon Omicron Fund is meant to evolve and grow in accordance with the brothers' views on the financial markets. With that being said, the founders of the fund endorse a value-oriented philosophy grounded in patience, rigor, and a willingness to be early and lonely when the evidence warrants it.
 			</p>
 
@@ -59,8 +80,8 @@ const description = "Investors, not speculators. The six-step framework we use t
 				We seek strategically well-positioned, durable businesses with competitive moats that will allow them to earn a return on their capital throughout multiple economic cycles. We want to hold businesses that are likely to grow consistently, generate substantial free cash flows, and maintain clean balance sheets. We do not chase narratives. We do not pay premium multiples for businesses whose competitive position we cannot defend in writing. We are skeptical of our own enthusiasm.
 			</p>
 
-			<!-- PULL QUOTE: indented, italic, with left border in gold -->
-			<blockquote class="border-l-2 border-gold pl-6 my-10 font-serif italic text-[18px] leading-[1.55] text-ink">
+			<!-- PULL QUOTE -->
+			<blockquote class="border-l-2 border-gold pl-5 md:pl-6 my-8 md:my-10 font-serif italic text-[17px] md:text-[18px] leading-[1.55] text-ink">
 				Great businesses may warrant a higher valuation. Average or poor businesses warrant significantly lower ones.
 			</blockquote>
 
@@ -69,78 +90,78 @@ const description = "Investors, not speculators. The six-step framework we use t
 			</p>
 		</div>
 
-		<!-- SECTION DIVIDER: subtle horizontal rule with a centered dot -->
-		<div class="flex items-center justify-center gap-4 my-14">
+		<!-- SECTION DIVIDER -->
+		<div class="flex items-center justify-center gap-4 my-10 md:my-14">
 			<hr class="border-0 border-t border-rule w-16" />
 			<span class="text-rule text-xs">&bull;</span>
 			<hr class="border-0 border-t border-rule w-16" />
 		</div>
 
-		<!-- SECOND SECTION: How We Evaluate a Business -->
-		<div class="mb-10">
+		<!-- SECOND SECTION -->
+		<div class="mb-8 md:mb-10">
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-3">How We Evaluate a Business</p>
-			<h3 class="font-serif text-[26px] leading-[1.25] font-medium text-ink">The order of operations.</h3>
+			<h3 class="font-serif text-[22px] md:text-[26px] leading-[1.25] font-medium text-ink">The order of operations.</h3>
 		</div>
 
-		<p class="font-serif text-[16px] leading-[1.75] text-ink-soft mb-10">
+		<p class="font-serif text-[15px] md:text-[16px] leading-[1.75] text-ink-soft mb-8 md:mb-10">
 			Every pitch brought before the investment committee is evaluated in a fixed order. We do not begin with price. We do not begin with a chart. We begin with the business itself, and we move to valuation only after we are convinced the business is worth understanding.
 		</p>
 
-		<!-- ROMAN NUMERAL LIST: six steps in the framework -->
-		<ol class="space-y-6 mb-12">
-			<li class="grid grid-cols-[2.5rem_1fr] gap-2">
+		<!-- ROMAN NUMERAL LIST -->
+		<ol class="space-y-6 mb-10 md:mb-12">
+			<li class="grid grid-cols-[2rem_1fr] md:grid-cols-[2.5rem_1fr] gap-2">
 				<span class="font-serif italic text-[15px] text-gold pt-1">i.</span>
 				<div>
-					<p class="font-serif text-[16px] font-medium text-ink mb-1">Business quality</p>
-					<p class="font-serif text-[15px] leading-[1.7] text-ink-soft">Durable competitive moat, pricing power, reinvestment runway. If the moat cannot be articulated in a sentence, we do not own the business.</p>
+					<p class="font-serif text-[15px] md:text-[16px] font-medium text-ink mb-1">Business quality</p>
+					<p class="font-serif text-[14px] md:text-[15px] leading-[1.7] text-ink-soft">Durable competitive moat, pricing power, reinvestment runway. If the moat cannot be articulated in a sentence, we do not own the business.</p>
 				</div>
 			</li>
-			<li class="grid grid-cols-[2.5rem_1fr] gap-2">
+			<li class="grid grid-cols-[2rem_1fr] md:grid-cols-[2.5rem_1fr] gap-2">
 				<span class="font-serif italic text-[15px] text-gold pt-1">ii.</span>
 				<div>
-					<p class="font-serif text-[16px] font-medium text-ink mb-1">Financial characteristics</p>
-					<p class="font-serif text-[15px] leading-[1.7] text-ink-soft">Consistent growth, strong free cash flow generation, a clean balance sheet, and a high or improving return on invested capital.</p>
+					<p class="font-serif text-[15px] md:text-[16px] font-medium text-ink mb-1">Financial characteristics</p>
+					<p class="font-serif text-[14px] md:text-[15px] leading-[1.7] text-ink-soft">Consistent growth, strong free cash flow generation, a clean balance sheet, and a high or improving return on invested capital.</p>
 				</div>
 			</li>
-			<li class="grid grid-cols-[2.5rem_1fr] gap-2">
+			<li class="grid grid-cols-[2rem_1fr] md:grid-cols-[2.5rem_1fr] gap-2">
 				<span class="font-serif italic text-[15px] text-gold pt-1">iii.</span>
 				<div>
-					<p class="font-serif text-[16px] font-medium text-ink mb-1">Management</p>
-					<p class="font-serif text-[15px] leading-[1.7] text-ink-soft">A track record of rational capital allocation, aligned incentives, and honest communication with shareholders. We read the last ten years of letters before we buy.</p>
+					<p class="font-serif text-[15px] md:text-[16px] font-medium text-ink mb-1">Management</p>
+					<p class="font-serif text-[14px] md:text-[15px] leading-[1.7] text-ink-soft">A track record of rational capital allocation, aligned incentives, and honest communication with shareholders. We read the last ten years of letters before we buy.</p>
 				</div>
 			</li>
-			<li class="grid grid-cols-[2.5rem_1fr] gap-2">
+			<li class="grid grid-cols-[2rem_1fr] md:grid-cols-[2.5rem_1fr] gap-2">
 				<span class="font-serif italic text-[15px] text-gold pt-1">iv.</span>
 				<div>
-					<p class="font-serif text-[16px] font-medium text-ink mb-1">Valuation</p>
-					<p class="font-serif text-[15px] leading-[1.7] text-ink-soft">A fair value range proposed with explicit assumptions. Discounted cash flow, multiples, or sum-of-parts as the business warrants. The math is always shown.</p>
+					<p class="font-serif text-[15px] md:text-[16px] font-medium text-ink mb-1">Valuation</p>
+					<p class="font-serif text-[14px] md:text-[15px] leading-[1.7] text-ink-soft">A fair value range proposed with explicit assumptions. Discounted cash flow, multiples, or sum-of-parts as the business warrants. The math is always shown.</p>
 				</div>
 			</li>
-			<li class="grid grid-cols-[2.5rem_1fr] gap-2">
+			<li class="grid grid-cols-[2rem_1fr] md:grid-cols-[2.5rem_1fr] gap-2">
 				<span class="font-serif italic text-[15px] text-gold pt-1">v.</span>
 				<div>
-					<p class="font-serif text-[16px] font-medium text-ink mb-1">Margin of safety</p>
-					<p class="font-serif text-[15px] leading-[1.7] text-ink-soft">An explicit gap between current price and fair value. Lower-quality businesses demand a wider discount. We would rather pass on a good idea than overpay for a great one.</p>
+					<p class="font-serif text-[15px] md:text-[16px] font-medium text-ink mb-1">Margin of safety</p>
+					<p class="font-serif text-[14px] md:text-[15px] leading-[1.7] text-ink-soft">An explicit gap between current price and fair value. Lower-quality businesses demand a wider discount. We would rather pass on a good idea than overpay for a great one.</p>
 				</div>
 			</li>
-			<li class="grid grid-cols-[2.5rem_1fr] gap-2">
+			<li class="grid grid-cols-[2rem_1fr] md:grid-cols-[2.5rem_1fr] gap-2">
 				<span class="font-serif italic text-[15px] text-gold pt-1">vi.</span>
 				<div>
-					<p class="font-serif text-[16px] font-medium text-ink mb-1">Disconfirming evidence</p>
-					<p class="font-serif text-[15px] leading-[1.7] text-ink-soft">What would make us wrong? What would we need to see to sell? A thesis without kill criteria is a narrative, not an investment.</p>
+					<p class="font-serif text-[15px] md:text-[16px] font-medium text-ink mb-1">Disconfirming evidence</p>
+					<p class="font-serif text-[14px] md:text-[15px] leading-[1.7] text-ink-soft">What would make us wrong? What would we need to see to sell? A thesis without kill criteria is a narrative, not an investment.</p>
 				</div>
 			</li>
 		</ol>
 
 		<!-- SECOND DIVIDER -->
-		<div class="flex items-center justify-center gap-4 my-14">
+		<div class="flex items-center justify-center gap-4 my-10 md:my-14">
 			<hr class="border-0 border-t border-rule w-16" />
 			<span class="text-rule text-xs">&bull;</span>
 			<hr class="border-0 border-t border-rule w-16" />
 		</div>
 
 		<!-- CLOSING PARAGRAPHS -->
-		<div class="font-serif text-[16px] leading-[1.75] text-ink-soft space-y-6 mb-16">
+		<div class="font-serif text-[15px] md:text-[16px] leading-[1.75] text-ink-soft space-y-6 mb-12 md:mb-16">
 			<p>
 				The overarching goal of the fund is to use logic, rational thinking, and mathematics to support qualitative ideas that members may have on individual companies. A story is never enough. A number without a story is never enough either. The work is to hold both in the same hand and weigh them honestly.
 			</p>
@@ -149,7 +170,7 @@ const description = "Investors, not speculators. The six-step framework we use t
 			</p>
 		</div>
 
-		<!-- SIGN-OFF BLOCK: right-aligned, italic salutation, name in serif, gold role -->
+		<!-- SIGN-OFF BLOCK -->
 		<div class="border-t border-rule pt-8 text-right">
 			<p class="font-serif italic text-[15px] text-ink-muted mb-1">Fraternally,</p>
 			<p class="font-serif text-[16px] font-medium text-ink mb-1">Jason Greenblatt</p>
@@ -158,11 +179,21 @@ const description = "Investors, not speculators. The six-step framework we use t
 
 	</article>
 
-	<!-- FOOTER: identical to homepage -->
+	<!-- FOOTER -->
 	<footer class="bg-ink text-cream py-6">
-		<div class="mx-auto max-w-[1080px] px-6 flex items-center justify-between">
+		<div class="mx-auto max-w-[1080px] px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0">
 			<p class="font-serif italic text-[14px]">Fraternally, since 2026</p>
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold">&Sigma; N &middot; Epsilon Omicron</p>
 		</div>
 	</footer>
+
+	<!-- MOBILE NAV TOGGLE SCRIPT -->
+	<script>
+		const toggle = document.getElementById('mobile-nav-toggle');
+		const panel = document.getElementById('mobile-nav-panel');
+		toggle?.addEventListener('click', () => {
+			panel?.classList.toggle('hidden');
+			panel?.classList.toggle('flex');
+		});
+	</script>
 </Layout>
