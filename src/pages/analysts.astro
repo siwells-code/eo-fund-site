@@ -4,8 +4,6 @@ import Layout from '../layouts/Layout.astro';
 const title = "Analysts · The Epsilon Omicron Fund";
 const description = "The investment committee of the Epsilon Omicron Fund. Five co-founders, five sectors, one fund.";
 
-// Bio data — keeps the JSX below clean and makes adding/editing bios trivial.
-// Display order: Jason first (President), then directors alphabetical by first name.
 const analysts = [
 	{
 		name: 'Jason Greenblatt',
@@ -41,23 +39,44 @@ const analysts = [
 ---
 
 <Layout title={title} description={description}>
-	<!-- Outer container — same width as homepage for masthead consistency -->
 	<div class="mx-auto max-w-[1080px] px-6">
 
-		<!-- MASTHEAD: identical to other pages, with ANALYSTS underlined -->
+		<!-- MASTHEAD -->
 		<header class="pt-10 pb-5">
 			<div class="flex items-start justify-between gap-8">
 				<h1 class="font-serif text-[26px] leading-[1.15] font-medium text-ink max-w-[240px]">
 					The Epsilon<br />Omicron<br />Fund
 				</h1>
-				<nav class="flex items-center gap-10 pt-2">
+
+				<!-- DESKTOP NAV -->
+				<nav class="hidden md:flex items-center gap-10 pt-2">
 					<a href="/" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Home</a>
 					<a href="/philosophy" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Philosophy</a>
 					<a href="/letters" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Letters</a>
 					<a href="/analysts" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink border-b border-gold pb-1">Analysts</a>
 					<a href="/contact" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Contact</a>
 				</nav>
+
+				<!-- MOBILE HAMBURGER -->
+				<button
+					id="mobile-nav-toggle"
+					aria-label="Open menu"
+					class="md:hidden flex flex-col justify-center items-center w-10 h-10 mt-2"
+				>
+					<span class="block w-6 h-px bg-ink mb-1.5"></span>
+					<span class="block w-6 h-px bg-ink mb-1.5"></span>
+					<span class="block w-6 h-px bg-ink"></span>
+				</button>
 			</div>
+
+			<!-- MOBILE NAV PANEL -->
+			<nav id="mobile-nav-panel" class="hidden md:hidden flex-col gap-5 pt-6 pb-2">
+				<a href="/" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Home</a>
+				<a href="/philosophy" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Philosophy</a>
+				<a href="/letters" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Letters</a>
+				<a href="/analysts" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink border-b border-gold pb-1 self-start">Analysts</a>
+				<a href="/contact" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Contact</a>
+			</nav>
 		</header>
 
 		<!-- KICKER -->
@@ -70,42 +89,42 @@ const analysts = [
 
 	</div>
 
-	<!-- ANALYSTS PAGE: narrower centered column, same as philosophy -->
-	<section class="mx-auto max-w-[760px] px-6 py-16">
+	<!-- ANALYSTS PAGE -->
+	<section class="mx-auto max-w-[760px] px-6 py-12 md:py-16">
 
-		<!-- TITLE BLOCK: matches philosophy page structure -->
-		<div class="text-center mb-16">
+		<!-- TITLE BLOCK -->
+		<div class="text-center mb-12 md:mb-16">
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-6">Our Team</p>
-			<h2 class="font-serif text-[34px] leading-[1.2] font-medium text-ink mb-4">
+			<h2 class="font-serif text-[28px] md:text-[34px] leading-[1.2] font-medium text-ink mb-4">
 				Analysts.
 			</h2>
 			<p class="font-serif italic text-[15px] text-ink-muted">The investment committee of the Epsilon Omicron Fund.</p>
 			<hr class="border-0 border-t border-rule w-12 mx-auto mt-6" />
 		</div>
 
-		<!-- ANALYST LIST: one bio per row, photo on left, content on right -->
-		<div class="space-y-16">
+		<!-- ANALYST LIST: stacked on mobile, side-by-side on desktop -->
+		<div class="space-y-12 md:space-y-16">
 			{analysts.map((analyst) => (
-				<article class="grid grid-cols-[140px_1fr] gap-10 items-start">
+				<article class="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-6 md:gap-10 items-start">
 
-					<!-- PHOTO PLACEHOLDER: gray square with serif initials -->
-					<div class="aspect-square bg-rule flex items-center justify-center">
-						<span class="font-serif text-[36px] font-medium text-ink-muted">
+					<!-- PHOTO PLACEHOLDER -->
+					<div class="aspect-square w-[100px] md:w-full bg-rule flex items-center justify-center mx-auto md:mx-0">
+						<span class="font-serif text-[28px] md:text-[36px] font-medium text-ink-muted">
 							{analyst.initials}
 						</span>
 					</div>
 
 					<!-- BIO CONTENT -->
-					<div>
-						<h3 class="font-serif text-[22px] leading-[1.2] font-medium text-ink mb-1">
+					<div class="text-center md:text-left">
+						<h3 class="font-serif text-[20px] md:text-[22px] leading-[1.2] font-medium text-ink mb-1">
 							{analyst.name}
 						</h3>
-						<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-5">
+						<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-4 md:mb-5">
 							{analyst.role}
 						</p>
 
 						{analyst.bio ? (
-							<p class="font-serif text-[15px] leading-[1.7] text-ink-soft">
+							<p class="font-serif text-[15px] leading-[1.7] text-ink-soft text-left">
 								{analyst.bio}
 							</p>
 						) : (
@@ -121,11 +140,21 @@ const analysts = [
 
 	</section>
 
-	<!-- FOOTER: identical to other pages -->
+	<!-- FOOTER -->
 	<footer class="bg-ink text-cream py-6">
-		<div class="mx-auto max-w-[1080px] px-6 flex items-center justify-between">
+		<div class="mx-auto max-w-[1080px] px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0">
 			<p class="font-serif italic text-[14px]">Fraternally, since 2026</p>
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold">&Sigma; N &middot; Epsilon Omicron</p>
 		</div>
 	</footer>
+
+	<!-- MOBILE NAV TOGGLE SCRIPT -->
+	<script>
+		const toggle = document.getElementById('mobile-nav-toggle');
+		const panel = document.getElementById('mobile-nav-panel');
+		toggle?.addEventListener('click', () => {
+			panel?.classList.toggle('hidden');
+			panel?.classList.toggle('flex');
+		});
+	</script>
 </Layout>
