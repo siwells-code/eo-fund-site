@@ -8,21 +8,45 @@ const description = "Get in touch with the Epsilon Omicron Fund. Information for
 <Layout title={title} description={description}>
 	<div class="mx-auto max-w-[1080px] px-6">
 
+		<!-- MASTHEAD -->
 		<header class="pt-10 pb-5">
 			<div class="flex items-start justify-between gap-8">
 				<h1 class="font-serif text-[26px] leading-[1.15] font-medium text-ink max-w-[240px]">
 					The Epsilon<br />Omicron<br />Fund
 				</h1>
-				<nav class="flex items-center gap-10 pt-2">
+
+				<!-- DESKTOP NAV -->
+				<nav class="hidden md:flex items-center gap-10 pt-2">
 					<a href="/" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Home</a>
 					<a href="/philosophy" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Philosophy</a>
 					<a href="/letters" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Letters</a>
 					<a href="/analysts" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink hover:text-gold transition-colors">Analysts</a>
 					<a href="/contact" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink border-b border-gold pb-1">Contact</a>
 				</nav>
+
+				<!-- MOBILE HAMBURGER -->
+				<button
+					id="mobile-nav-toggle"
+					aria-label="Open menu"
+					class="md:hidden flex flex-col justify-center items-center w-10 h-10 mt-2"
+				>
+					<span class="block w-6 h-px bg-ink mb-1.5"></span>
+					<span class="block w-6 h-px bg-ink mb-1.5"></span>
+					<span class="block w-6 h-px bg-ink"></span>
+				</button>
 			</div>
+
+			<!-- MOBILE NAV PANEL -->
+			<nav id="mobile-nav-panel" class="hidden md:hidden flex-col gap-5 pt-6 pb-2">
+				<a href="/" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Home</a>
+				<a href="/philosophy" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Philosophy</a>
+				<a href="/letters" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Letters</a>
+				<a href="/analysts" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink">Analysts</a>
+				<a href="/contact" class="font-sans text-[11px] uppercase tracking-[0.18em] text-ink border-b border-gold pb-1 self-start">Contact</a>
+			</nav>
 		</header>
 
+		<!-- KICKER -->
 		<div class="pb-3">
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold leading-[1.6]">
 				Sigma Nu &middot;<br />Established 2026
@@ -32,22 +56,33 @@ const description = "Get in touch with the Epsilon Omicron Fund. Information for
 
 	</div>
 
-	<section class="mx-auto max-w-[640px] px-6 py-24 text-center">
+	<section class="mx-auto max-w-[640px] px-6 py-16 md:py-24 text-center">
 		<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-6">Get Involved</p>
-		<h2 class="font-serif text-[34px] leading-[1.2] font-medium text-ink mb-4">
+		<h2 class="font-serif text-[28px] md:text-[34px] leading-[1.2] font-medium text-ink mb-4">
 			Coming soon.
 		</h2>
 		<p class="font-serif italic text-[15px] text-ink-muted mb-8">Information for prospective brothers and alumni.</p>
 		<hr class="border-0 border-t border-rule w-12 mx-auto mb-8" />
-		<p class="font-serif text-[16px] leading-[1.7] text-ink-soft">
+		<p class="font-serif text-[15px] md:text-[16px] leading-[1.7] text-ink-soft">
 			Information about joining the fund, attending meetings, and supporting the chapter will be available here shortly.
 		</p>
 	</section>
 
+	<!-- FOOTER -->
 	<footer class="bg-ink text-cream py-6">
-		<div class="mx-auto max-w-[1080px] px-6 flex items-center justify-between">
+		<div class="mx-auto max-w-[1080px] px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0">
 			<p class="font-serif italic text-[14px]">Fraternally, since 2026</p>
 			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold">&Sigma; N &middot; Epsilon Omicron</p>
 		</div>
 	</footer>
+
+	<!-- MOBILE NAV TOGGLE SCRIPT -->
+	<script>
+		const toggle = document.getElementById('mobile-nav-toggle');
+		const panel = document.getElementById('mobile-nav-panel');
+		toggle?.addEventListener('click', () => {
+			panel?.classList.toggle('hidden');
+			panel?.classList.toggle('flex');
+		});
+	</script>
 </Layout>
