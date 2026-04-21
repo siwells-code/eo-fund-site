@@ -9,30 +9,35 @@ const analysts = [
 		name: 'Jason Greenblatt',
 		role: 'President',
 		initials: 'JG',
+		photo: null,
 		bio: null,
 	},
 	{
 		name: 'Jack Renaud',
 		role: 'Director of Healthcare & Financials',
 		initials: 'JR',
+		photo: null,
 		bio: null,
 	},
 	{
 		name: 'Mark Reshwan',
 		role: 'Director of Consumer Staples & Discretionary',
 		initials: 'MR',
+		photo: null,
 		bio: null,
 	},
 	{
 		name: 'Ming Wang',
 		role: 'Director of Technology',
 		initials: 'MW',
-		bio: null,
+		photo: '/images/analysts/ming.jpeg',
+		bio: 'Ming Wang is a sophomore from Taipei, Taiwan studying Artificial Intelligence for Business at the Marshall School of Business and Viterbi School of Engineering. Ming focuses on top-down investing within the TMT sector, analyzing secular trends such as the impact of AI to find value dislocations in tech companies, with a particular eye on the proprietary technology behind them. Last summer, Ming worked at Alpha Square Group, a tech-focused family office in New York. Ming will be joining Silicon Motion (NYSE:SIMO) as a PM intern this summer, and will be joining Evercore\'s technology M&A team in Menlo Park as a summer investment banking analyst in 2027.',
 	},
 	{
 		name: 'Sam Wells',
 		role: 'Director of Energy & Industry',
 		initials: 'SW',
+		photo: '/images/analysts/sam.jpeg',
 		bio: 'Sam Wells is a sophomore from Syracuse, New York. He is studying Legal Studies and Accounting at the Gould School of Law and the Marshall School of Business. Sam is especially interested in the intersection between law and business, with future goals of working in transactional corporate law, particularly in Mergers & Acquisitions. As Director of Energy & Industry, Sam approaches investing with a unique legal-minded perspective. He prefers proven companies with strong financials and excellent business models, to balance the somewhat aggressive nature of the other sectors. Last summer, Sam worked in-house at American Food & Vending Corp. in both the accounting and legal departments.',
 	},
 ];
@@ -107,12 +112,22 @@ const analysts = [
 			{analysts.map((analyst) => (
 				<article class="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-6 md:gap-10 items-start">
 
-					<!-- PHOTO PLACEHOLDER -->
-					<div class="aspect-square w-[100px] md:w-full bg-rule flex items-center justify-center mx-auto md:mx-0">
-						<span class="font-serif text-[28px] md:text-[36px] font-medium text-ink-muted">
-							{analyst.initials}
-						</span>
-					</div>
+					<!-- PHOTO or PLACEHOLDER: real photo if available, gray square with initials otherwise -->
+					{analyst.photo ? (
+						<div class="aspect-square w-[100px] md:w-full overflow-hidden mx-auto md:mx-0">
+							<img
+								src={analyst.photo}
+								alt={analyst.name}
+								class="w-full h-full object-cover"
+							/>
+						</div>
+					) : (
+						<div class="aspect-square w-[100px] md:w-full bg-rule flex items-center justify-center mx-auto md:mx-0">
+							<span class="font-serif text-[28px] md:text-[36px] font-medium text-ink-muted">
+								{analyst.initials}
+							</span>
+						</div>
+					)}
 
 					<!-- BIO CONTENT -->
 					<div class="text-center md:text-left">
