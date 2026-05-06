@@ -1,10 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const title = "Founders · The Epsilon Omicron Fund";
-const description = "The founders of the Epsilon Omicron Fund. Five co-founders, five sectors, one fund.";
+const title = "The Team · The Epsilon Omicron Fund";
+const description = "The team behind the Epsilon Omicron Fund — founders and portfolio managers.";
 
-const analysts = [
+// Display order:
+// Founders: Jason first (President), then directors alphabetical by first name.
+// Portfolio Managers: alphabetical by first name.
+const founders = [
 	{
 		name: 'Jason Greenblatt',
 		role: 'President',
@@ -17,7 +20,8 @@ const analysts = [
 		role: 'Director of Healthcare & Financials',
 		initials: 'JR',
 		photo: '/images/analysts/jack.jpeg',
-		bio: 'Jack is a junior studying Business Administration, with a minor in Mathematical Data Analytics. He is interning at Loon Lake Capital in the summer of 2026 and Evercore in the summer 2027. Jack specializes in the healthcare and biotechnology sector.'
+		objectPosition: 'top',
+		bio: 'Jack Renaud is a junior from Boston, MA studying Business Administration at the USC Marshall School of Business, with a minor in Mathematical Data Analytics. He is interning at Loon Lake Capital in the summer of 2026 and with Evercore as an Investment Banking Summer Analyst in 2027. Jack specializes in the healthcare and biotechnology sector.',
 	},
 	{
 		name: 'Mark Reshwan',
@@ -39,6 +43,30 @@ const analysts = [
 		initials: 'SW',
 		photo: '/images/analysts/sam.jpeg',
 		bio: 'Sam Wells is a sophomore from Syracuse, New York. He is studying Legal Studies and Accounting at the Gould School of Law and the Marshall School of Business. Sam is especially interested in the intersection between law and business, with future goals of working in transactional corporate law, particularly in Mergers & Acquisitions. As Director of Energy & Industry, Sam approaches investing with a unique legal-minded perspective. He prefers proven companies with strong financials and excellent business models, to balance the somewhat aggressive nature of the other sectors. Last summer, Sam worked in-house at American Food & Vending Corp. in both the accounting and legal departments.',
+	},
+];
+
+const portfolioManagers = [
+	{
+		name: 'Liam Bennett',
+		role: 'Portfolio Manager',
+		initials: 'LB',
+		photo: '/images/analysts/liam.jpeg',
+		bio: 'Liam Bennett is a freshman from Boston, MA studying Business Administration at the USC Marshall School of Business. He is a member of the Value Investing Group and is highly interested in distressed and special situations investing. This summer, he will be joining Greenlight Capital, a value-oriented long/short equity and distressed hedge fund based out of New York City. He will be recruiting for investment banking this fall.',
+	},
+	{
+		name: 'Nicolai Corneliussen',
+		role: 'Portfolio Manager',
+		initials: 'NC',
+		photo: null,
+		bio: null,
+	},
+	{
+		name: 'Rhett Rodgers',
+		role: 'Portfolio Manager',
+		initials: 'RR',
+		photo: null,
+		bio: null,
 	},
 ];
 ---
@@ -94,36 +122,94 @@ const analysts = [
 
 	</div>
 
-	<!-- ANALYSTS PAGE -->
-	<section class="mx-auto max-w-[760px] px-6 py-12 md:py-16">
+	<!-- TEAM CONTENT -->
+	<section class="mx-auto max-w-[760px] px-6 py-16 md:py-24">
 
-		<!-- TITLE BLOCK -->
-		<div class="text-center mb-12 md:mb-16">
-			<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-6">Our Team</p>
+		<!-- PAGE TITLE BLOCK -->
+		<div class="text-center">
 			<h2 class="font-serif text-[28px] md:text-[34px] leading-[1.2] font-medium text-ink mb-4">
-				Founders.
+				The Team.
 			</h2>
 			<p class="font-serif italic text-[15px] text-ink-muted">The investment committee of the Epsilon Omicron Fund.</p>
-			<hr class="border-0 border-t border-rule w-12 mx-auto mt-6" />
 		</div>
 
-		<!-- ANALYST LIST: stacked on mobile, side-by-side on desktop -->
+		<!-- SECTION DIVIDER -->
+		<hr class="border-0 border-t border-ink mt-12 md:mt-16 mb-12 md:mb-16" />
+
+		<!-- FOUNDERS SECTION -->
+		<h3 class="font-serif text-[26px] md:text-[32px] leading-[1.2] font-medium text-ink mb-12 md:mb-16 text-center">
+			Founders
+		</h3>
+
 		<div class="space-y-12 md:space-y-16">
-			{analysts.map((analyst) => (
+			{founders.map((analyst) => (
 				<article class="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-6 md:gap-10 items-start">
 
-					<!-- PHOTO or PLACEHOLDER: real photo if available, gray square with initials otherwise -->
+					<!-- PHOTO or PLACEHOLDER -->
 					{analyst.photo ? (
 						<div class="aspect-square w-[140px] md:w-full overflow-hidden mx-auto md:mx-0">
 							<img
 								src={analyst.photo}
 								alt={analyst.name}
-								class="w-full h-full object-cover"
+								class={`w-full h-full object-cover ${analyst.objectPosition === 'top' ? 'object-top' : ''}`}
 							/>
 						</div>
 					) : (
 						<div class="aspect-square w-[140px] md:w-full bg-rule flex items-center justify-center mx-auto md:mx-0">
-							<span class="font-serif text-[36px] md:text-[48px] font-medium text-ink-muted">
+							<span class="font-serif text-[32px] md:text-[44px] font-medium text-ink-muted">
+								{analyst.initials}
+							</span>
+						</div>
+					)}
+
+					<!-- BIO CONTENT -->
+					<div class="text-center md:text-left">
+						<h3 class="font-serif text-[20px] md:text-[22px] leading-[1.2] font-medium text-ink mb-1">
+							{analyst.name}
+						</h3>
+						<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-4 md:mb-5">
+							{analyst.role}
+						</p>
+
+						{analyst.bio ? (
+							<p class="font-serif text-[15px] leading-[1.7] text-ink-soft text-left">
+								{analyst.bio}
+							</p>
+						) : (
+							<p class="font-serif italic text-[14px] text-ink-muted">
+								Bio coming soon.
+							</p>
+						)}
+					</div>
+
+				</article>
+			))}
+		</div>
+
+		<!-- SECTION DIVIDER -->
+		<hr class="border-0 border-t border-ink mt-20 md:mt-24 mb-12 md:mb-16" />
+
+		<!-- PORTFOLIO MANAGERS SECTION -->
+		<h3 class="font-serif text-[26px] md:text-[32px] leading-[1.2] font-medium text-ink mb-12 md:mb-16 text-center">
+			Portfolio Managers
+		</h3>
+
+		<div class="space-y-12 md:space-y-16">
+			{portfolioManagers.map((analyst) => (
+				<article class="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-6 md:gap-10 items-start">
+
+					<!-- PHOTO or PLACEHOLDER -->
+					{analyst.photo ? (
+						<div class="aspect-square w-[140px] md:w-full overflow-hidden mx-auto md:mx-0">
+							<img
+								src={analyst.photo}
+								alt={analyst.name}
+								class={`w-full h-full object-cover ${analyst.objectPosition === 'top' ? 'object-top' : ''}`}
+							/>
+						</div>
+					) : (
+						<div class="aspect-square w-[140px] md:w-full bg-rule flex items-center justify-center mx-auto md:mx-0">
+							<span class="font-serif text-[32px] md:text-[44px] font-medium text-ink-muted">
 								{analyst.initials}
 							</span>
 						</div>
