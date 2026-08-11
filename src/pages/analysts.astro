@@ -13,6 +13,7 @@ const founders = [
 		role: 'President',
 		initials: 'JG',
 		photo: '/images/analysts/jason.jpeg',
+		linkedin: 'https://www.linkedin.com/in/jasonmgreenblatt/',
 		bio: 'Jason Greenblatt is a junior from Port Washington, New York studying Business Administration with a minor in Legal Studies at the USC Marshall School of Business. As President of the Epsilon Omicron Fund, Jason brings a value-oriented investment philosophy developed through his leadership of the USC Value Investing Group and hands-on experience across Wall Street. He spent the summer of 2024 as an Equity Options Analyst at Oppenheimer & Co. and the summer of 2025 as a Restructuring Analyst at Alvarez & Marsal, giving him a unique lens across both public markets and special situations. Jason currently serves as a Portfolio Manager for the USC Marshall USIF Fund and as Treasurer of Sigma Nu, and will be joining PJT Partners as a Restructuring Summer Analyst in 2026. He holds a FINRA Series 65 license, maintains a 4.0 GPA, and has been investing independently since 2021.',
 	},
 	{
@@ -21,6 +22,7 @@ const founders = [
 		initials: 'JR',
 		photo: '/images/analysts/jack.jpeg',
 		objectPosition: 'top',
+		linkedin: 'https://www.linkedin.com/in/jack-r-272418248/',
 		bio: 'Jack Renaud is a junior from Boston, MA studying Business Administration at the USC Marshall School of Business, with a minor in Mathematical Data Analytics. He is interning at Loon Lake Capital in the summer of 2026 and with Evercore as an Investment Banking Summer Analyst in 2027. Jack specializes in the healthcare and biotechnology sector.',
 	},
 	{
@@ -28,6 +30,7 @@ const founders = [
 		role: 'Director of Consumer Staples & Discretionary',
 		initials: 'MR',
 		photo: null,
+		linkedin: null,
 		bio: null,
 	},
 	{
@@ -35,6 +38,7 @@ const founders = [
 		role: 'Director of Technology',
 		initials: 'MW',
 		photo: '/images/analysts/ming.jpeg',
+		linkedin: 'https://www.linkedin.com/in/yi-hao-wang/',
 		bio: 'Ming Wang is a sophomore from Taipei, Taiwan studying Artificial Intelligence for Business at the Marshall School of Business and Viterbi School of Engineering. Ming focuses on top-down investing within the TMT sector, analyzing secular trends such as the impact of AI to find value dislocations in tech companies, with a particular eye on the proprietary technology behind them. Last summer, Ming worked at Alpha Square Group, a tech-focused family office in New York. Ming will be joining Silicon Motion (NYSE:SIMO) as a PM intern this summer, and will be joining Evercore\'s technology M&A team in Menlo Park as a summer investment banking analyst in 2027.',
 	},
 	{
@@ -42,6 +46,7 @@ const founders = [
 		role: 'Director of Energy & Industry',
 		initials: 'SW',
 		photo: '/images/analysts/sam.jpeg',
+		linkedin: 'https://www.linkedin.com/in/sam-wells-3-usc/',
 		bio: 'Sam Wells is a sophomore from Syracuse, New York. He is studying Legal Studies and Accounting at the Gould School of Law and the Marshall School of Business. Sam is especially interested in the intersection between law and business, with future goals of working in transactional corporate law, particularly in Mergers & Acquisitions. As Director of Energy & Industry, Sam approaches investing with a unique legal-minded perspective. He prefers proven companies with strong financials and excellent business models, to balance the somewhat aggressive nature of the other sectors. Last summer, Sam worked in-house at American Food & Vending Corp. in both the accounting and legal departments. Sam is currently working on a project using AI to research sticky boilerplate theory in M&A agreements.',
 	},
 ];
@@ -52,6 +57,7 @@ const portfolioManagers = [
 		role: 'Portfolio Manager',
 		initials: 'LB',
 		photo: '/images/analysts/liam.jpeg',
+		linkedin: 'https://www.linkedin.com/in/liam-bennett-656064334/',
 		bio: 'Liam Bennett is a freshman from Boston, MA studying Business Administration at the USC Marshall School of Business. He is a member of the Value Investing Group and is highly interested in distressed and special situations investing. This summer, he will be joining Greenlight Capital, a value-oriented long/short equity and distressed hedge fund based out of New York City. He will be recruiting for investment banking this fall.',
 	},
 	{
@@ -59,13 +65,15 @@ const portfolioManagers = [
 		role: 'Portfolio Manager',
 		initials: 'NC',
 		photo: '/images/analysts/nicolai.jpeg',
+		linkedin: 'https://www.linkedin.com/in/nicolai-corneliussen/',
 		bio: 'Nicolai is a sophomore from Novato, California, studying Business Administration with a concentration in finance at the Marshall School of Business. Nicolai approaches investing with an analytical, fundamentals-driven perspective built through hands-on experience. He is drawn to complex capital structures and downside-focused underwriting, favoring companies with durable cash flows and defensible market positions. He is especially interested in debt markets and credit, with future goals of working in leveraged finance. He will be joining Wells Fargo as an Investment Banking Summer Analyst in 2027.',
 	},
 	{
 		name: 'Rhett Rodgers',
 		role: 'Portfolio Manager',
 		initials: 'RR',
-		photo: ' /images/analysts/rhett.jpeg',
+		photo: '/images/analysts/rhett.jpeg',
+		linkedin: 'https://www.linkedin.com/in/rhettrodgers/',
 		bio: 'Rhett Rodgers is a junior from Chattanooga, Tennessee. He is studying Finance at the Marshall School of Business and Applied and Computational Mathematics at the Dornsife College of Arts and Sciences. Rhett is interested in a career at a hedge fund where he can combine quantitative analysis with fundamental investing. As an analyst, he seeks companies that may be oversold and represent a good value proposition, specifically targeting companies with strong underlying fundamentals and positive cash flow growth. Rhett previously founded and managed an investment fund similar to the EO Fund in high school and has developed his own trading algorithms.',
 	},
 ];
@@ -167,9 +175,26 @@ const portfolioManagers = [
 						<h3 class="font-serif text-[20px] md:text-[22px] leading-[1.2] font-medium text-ink mb-1">
 							{analyst.name}
 						</h3>
-						<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-4 md:mb-5">
-							{analyst.role}
-						</p>
+
+						<!-- ROLE + LINKEDIN -->
+						<div class="flex items-center justify-center md:justify-start gap-3 mb-4 md:mb-5">
+							<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold">
+								{analyst.role}
+							</p>
+							{analyst.linkedin && (
+								
+									href={analyst.linkedin}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="group inline-flex"
+									aria-label={`${analyst.name} on LinkedIn`}
+								>
+									<svg class="w-[14px] h-[14px] text-ink-muted group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+										<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+									</svg>
+								</a>
+							)}
+						</div>
 
 						{analyst.bio ? (
 							<p class="font-serif text-[15px] leading-[1.7] text-ink-soft text-left">
@@ -220,9 +245,26 @@ const portfolioManagers = [
 						<h3 class="font-serif text-[20px] md:text-[22px] leading-[1.2] font-medium text-ink mb-1">
 							{analyst.name}
 						</h3>
-						<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold mb-4 md:mb-5">
-							{analyst.role}
-						</p>
+
+						<!-- ROLE + LINKEDIN -->
+						<div class="flex items-center justify-center md:justify-start gap-3 mb-4 md:mb-5">
+							<p class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold">
+								{analyst.role}
+							</p>
+							{analyst.linkedin && (
+								
+									href={analyst.linkedin}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="group inline-flex"
+									aria-label={`${analyst.name} on LinkedIn`}
+								>
+									<svg class="w-[14px] h-[14px] text-ink-muted group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+										<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+									</svg>
+								</a>
+							)}
+						</div>
 
 						{analyst.bio ? (
 							<p class="font-serif text-[15px] leading-[1.7] text-ink-soft text-left">
